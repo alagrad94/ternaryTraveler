@@ -4,6 +4,7 @@ import React, { Component } from "react";
 // import ApplicationViews from "./ApplicationViews"
 
 import PointsOfInterest from "./pointsofinterest/PointsOfInterest"
+import AddPOIForm from "./addPoiForm/addPoiForm"
 
 import "./Traveler.css"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -16,7 +17,6 @@ class Traveler extends Component {
 
         this.state = {
 
-            // destinations: [],
             pointsofinterest: []
 
         }
@@ -27,9 +27,7 @@ class Traveler extends Component {
         fetch("http://localhost:5002/pointsofinterest?_expand=destination")
         .then(r => r.json())
         .then(pointsofinterest => {this.setState({pointsofinterest: pointsofinterest})})
-        // .then(() => fetch("http://localhost:5002/pointsofinterest")
-        // .then(r => r.json()))
-        // .then(pointsofinterest => {this.setState({pointsofinterest: pointsofinterest})})
+
     }
 
     render() {
@@ -38,6 +36,9 @@ class Traveler extends Component {
 
                <Route exact path="/" render={(props) => {
                     return <PointsOfInterest pointsofinterest={this.state.pointsofinterest}/>
+                }} />
+                <Route path="/addpoi" render={(props) => {
+                    return <AddPOIForm />
                 }} />
             </React.Fragment>
         )

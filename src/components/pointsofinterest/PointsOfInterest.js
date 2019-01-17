@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom';
 
 export default class PointsOfInterest extends Component {
-
-    handleEditButton() {
-
-    }
-
-    addPointOfInterest() {
-
-    }
 
     render() {
 
         return (
             <section className="pointsofinterest">
-            <button className="addPoiButton" onClick={this.addPointOfInterest}>Add Point of Interest</button>
+            <Link to="addpoi"><button className="addPoiButton">Add Point of Interest</button></Link>
             {
 
                 this.props.pointsofinterest.map(poi =>
