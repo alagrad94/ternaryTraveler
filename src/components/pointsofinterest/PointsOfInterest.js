@@ -3,22 +3,32 @@ import React, { Component } from 'react'
 
 export default class PointsOfInterest extends Component {
 
+    handleEditButton() {
+
+    }
+
+    addPointOfInterest() {
+
+    }
+
     render() {
 
         return (
             <section className="pointsofinterest">
+            <button className="addPoiButton" onClick={this.addPointOfInterest}>Add Point of Interest</button>
             {
-                this.props.pointsofinterest.map(pointofinterest =>
-                    <div key={pointofinterest.id}>
-                        {`Name: `}{pointofinterest.name} <br/>
-                        {`Description: `}{pointofinterest.description} <br/>
-                        {`Cost: `}{pointofinterest.cost} <br/>
-                        {`Review: `}{pointofinterest.review}<br/>
 
-                        {pointofinterest.destination.map(place =>
-                        <div className="destination" >
-                        {`Place:`} {place.name}
-                        </div>)}
+                this.props.pointsofinterest.map(poi =>
+
+                    <div className="poiDiv" key={poi.id}>
+                        {`Name: `}{poi.name} <br/>
+                        {`Description: `}{poi.description} <br/>
+                        {`Cost: `}{poi.cost} <br/>
+                        {`Review: `}{poi.review}<br/>
+                        {`Place:`}{poi.destination.name}
+                        <button className="poiEditButton" onClick={this.handleEditButton}>
+                            Edit
+                        </button>
                     </div>
                 )
             }
