@@ -3,11 +3,29 @@
     justify-content: space-around;
     flex-direction: column
 }
-.poiDiv {
+#poiDiv {
     border: 2px;
     border-style: solid;
     border-color: black;
     margin: 2px;
     display: flex;
     flex-direction: column;
+}
+.editpoi {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    margin: 2px;
+}
+.addpoi {
+    display: flex;
+    flex-direction: column;
+    border: 2px;
+    flex-basis: 25%;
+    border-style: solid;
+    border-color: black;
+    margin: 2px;
 }

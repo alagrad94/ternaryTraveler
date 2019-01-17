@@ -20,18 +20,18 @@
     {
       "id": 1,
       "destinationId": 1,
-      "name": "Local Market",
+      "name": "YadaYada",
       "description": "Local market where you can try purchase local products and try the local food",
-      "cost": 0,
-      "review": ""
+      "cost": 10000,
+      "review": "OMG I THINK I FINALLY GOT IT"
     },
     {
       "id": 2,
       "destinationId": 1,
       "name": "BooHoo",
       "description": "Local market where you can try purchase local products and try the local food",
-      "cost": 0,
-      "review": ""
+      "cost": 50,
+      "review": "LLLLDFLDLDLDLDLDF"
     },
     {
       "id": 3,
@@ -56,6 +56,22 @@
       "description": "Local market where you can try purchase local products and try the local food",
       "cost": 0,
       "review": ""
+    },
+    {
+      "destinationId": 1,
+      "name": "Another One",
+      "description": "AJAJAJASJASJASJAJAJ",
+      "cost": 0,
+      "review": "",
+      "id": 6
+    },
+    {
+      "destinationId": 3,
+      "name": "YAH!",
+      "description": "AJAJAJASJASJASJAJAJ",
+      "cost": 0,
+      "review": "",
+      "id": 7
     }
   ]
 }

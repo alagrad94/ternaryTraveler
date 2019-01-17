@@ -5,6 +5,7 @@ import React, { Component } from "react";
 
 import PointsOfInterest from "./pointsofinterest/PointsOfInterest"
 import AddPOIForm from "./addPoiForm/addPoiForm"
+import EditPOIForm from "./editPoiForm/editPoiForm"
 
 import "./Traveler.css"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -12,33 +13,18 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 class Traveler extends Component {
 
-    constructor() {
-        super();
-
-        this.state = {
-
-            pointsofinterest: []
-
-        }
-    }
-
-    componentDidMount () {
-
-        fetch("http://localhost:5002/pointsofinterest?_expand=destination")
-        .then(r => r.json())
-        .then(pointsofinterest => {this.setState({pointsofinterest: pointsofinterest})})
-
-    }
 
     render() {
         return (
             <React.Fragment>
-
                <Route exact path="/" render={(props) => {
-                    return <PointsOfInterest pointsofinterest={this.state.pointsofinterest}/>
+                    return <PointsOfInterest {...props} />
                 }} />
                 <Route path="/addpoi" render={(props) => {
-                    return <AddPOIForm />
+                    return <AddPOIForm {...props} />
+                }} />
+                <Route path="/editpoi" render={(props) => {
+                    return <EditPOIForm {...props} />
                 }} />
             </React.Fragment>
         )

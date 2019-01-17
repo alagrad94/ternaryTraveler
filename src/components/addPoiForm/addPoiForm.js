@@ -5,6 +5,7 @@ export default class AddPOIForm extends Component {
   constructor(props) {
       super(props);
       this.state = {
+        id: 0,
         name: '',
         descripton: '',
         cost: '',
@@ -16,51 +17,52 @@ export default class AddPOIForm extends Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleInputChange(event) {
-      const target = event.target;
-      const value = target.value;
-      const name = target.name;
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-      this.setState({
-        [name]: value
-      });
-    }
+    this.setState({
+      [name]: value
+    });
+  }
 
-    handleSubmit(event) {
+  handleSubmit(event) {
 
-      let poiObject = {
+    let poiObject = {
 
-        "destinationId": parseInt(this.state.place),
-        "name": this.state.name,
-        "description": this.state.descripton,
-        "cost": parseFloat(this.state.cost),
-        "review": ""
-        }
+      "destinationId": parseInt(this.state.place),
+      "name": this.state.name,
+      "description": this.state.descripton,
+      "cost": parseFloat(this.state.cost),
+      "review": ""
+      }
 
-        console.log(poiObject)
+      console.log(poiObject)
 
-      fetch("http://localhost:5002/pointsofinterest?_expand=destination", {
-          method: `POST`, // *GET, POST, PUT, DELETE, etc.
-          headers: {
-              "Content-Type": "application/json; charset=utf-8",
-              // "Content-Type": "application/x-www-form-urlencoded",
-          },
-          // referrer: "no-referrer", // no-referrer, *client
-          body: JSON.stringify(poiObject), // body data type must match "Content-Type" header
-      }).then(() => this.setState(() => ({
-        toDashboard: true
-      })))
+    fetch("http://localhost:5002/pointsofinterest?_expand=destination", {
+        method: `POST`, // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        // referrer: "no-referrer", // no-referrer, *client
+        body: JSON.stringify(poiObject), // body data type must match "Content-Type" header
+    }).then(() => this.setState(() => ({
+      toDashboard: true
+    })))
 
 
-      event.preventDefault();
-    }
+    event.preventDefault();
+  }
 
   render () {
     if (this.state.toDashboard === true) {
       return <Redirect to="/"/>
     } else {
     return (
-        <form onSubmit={this.handleSubmit}>
+
+        <form className="addpoi" onSubmit={this.handleSubmit}  >
           <label>
             Name:
             <input type="text" name="name" value={this.state.name} onChange={this.handleInputChange} />
@@ -81,6 +83,7 @@ export default class AddPOIForm extends Component {
           </select>
           <input type="submit" />
         </form>
+
       );
   }
   }
