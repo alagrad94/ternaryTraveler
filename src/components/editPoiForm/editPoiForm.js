@@ -62,10 +62,7 @@ export default class EditPOIForm extends Component {
     render () {
 
         if (this.state.toDashboard === true) {
-            return <Redirect to={{
-                pathname: "/",
-                state: {from: this.props.location }
-              }}/>
+            return <Redirect to="/" />
         } else {
             return (
 
